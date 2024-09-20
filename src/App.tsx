@@ -3,8 +3,9 @@ import StarsCanvas from "./components/canvas/Star";
 import { Contact } from "./components/Contact";
 import { Hero } from "./components/Hero";
 import Preloader from "./components/Preloader";
-import Works from "./components/Works";
+import Works from "./components/Experiences";
 import { BrowserRouter } from "react-router-dom";
+import SocialLinks from "./components/SocialLinks";
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <Preloader />
       </div>
       <div className="relative z-30">
+      <SocialLinks />
       <Hero />
       <Works />
       <Contact />
