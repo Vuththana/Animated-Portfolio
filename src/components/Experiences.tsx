@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import DiscordCanvas from './canvas/Discord'
-import { easeInOut, easeOut, motion } from 'framer-motion';
-import { easeIn } from 'framer-motion/dom';
+import { useState } from 'react'
 
 export default function Works() {
     const data = [
@@ -13,7 +10,6 @@ export default function Works() {
 
 
     const [work, setWork] = useState("User Interfaces");
-    const [isOpen, setIsOpen] = useState(false)
 
     const handleClick = (item) => {
         setWork(item);

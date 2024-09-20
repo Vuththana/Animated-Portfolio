@@ -1,5 +1,4 @@
 import Navbar from "./Navbar"
-import { styles } from "../styles"
 import Typewriter from 'typewriter-effect';
 import EarthCanvas from "./canvas/Earth";
 import PDFDownloadButton from "./DownloadPdf";
@@ -15,7 +14,7 @@ export const Hero = () => {
               <div className="sm:h-[900px] sm:w-[800px] h-[300px] sm:absolute sm:right-[-90px]">
               <EarthCanvas />
             </div>
-                <h1 className={`text-center sm:text-left  ` + styles.heroHeadText}>Hello, I'm 
+                <h1 className="text-center sm:text-left  font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">Hello, I'm 
                 <Typewriter
                   options={{
                     strings: ['Vuththana', 'Goros'],

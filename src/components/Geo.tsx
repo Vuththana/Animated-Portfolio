@@ -1,10 +1,8 @@
-import React from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Annotation,
-  ZoomableGroup
 } from "react-simple-maps";
 
 const Map = () => {
@@ -13,8 +11,8 @@ const Map = () => {
       projection="geoAzimuthalEqualArea"
       projectionConfig={{
         rotate: [-450, 3, 3],
-        center: [16,15],
-        scale: 3200
+        center: [16, 15],
+        scale: 3200,
       }}
       style={{ width: "100%", height: "100%" }}
     >
@@ -24,7 +22,7 @@ const Map = () => {
         stroke="#FFFFFF"
         strokeWidth={0.5}
       >
-        {({ geographies }) =>
+        {({ geographies }: { geographies: GeoFeature[] }) =>
           geographies.map((geo) => (
             <Geography key={geo.rsmKey} geography={geo} />
           ))
@@ -37,7 +35,7 @@ const Map = () => {
         connectorProps={{
           stroke: "white",
           strokeWidth: 2,
-          strokeLinecap: "round"
+          strokeLinecap: "round",
         }}
       >
         <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="white">
@@ -51,7 +49,7 @@ const Map = () => {
         connectorProps={{
           stroke: "white",
           strokeWidth: 2,
-          strokeLinecap: "round"
+          strokeLinecap: "round",
         }}
       >
         <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="white">

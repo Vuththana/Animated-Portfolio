@@ -1,8 +1,11 @@
-import { delay, motion } from "framer-motion";
-import { styles } from "../styles"
+import { motion } from "framer-motion";
 import {  useState } from "react";
 
-const Preloader = ({ timer }) => {
+interface PreloaderProps {
+  timer: boolean;
+}
+
+const Preloader: React.FC<PreloaderProps> = ({ timer }) => {
     const [isVisible, setIsVisible] = useState(true);
 
 
