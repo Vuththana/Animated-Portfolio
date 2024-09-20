@@ -2,8 +2,10 @@ import Navbar from "./Navbar"
 import { styles } from "../styles"
 import Typewriter from 'typewriter-effect';
 import EarthCanvas from "./canvas/Earth";
+import PDFDownloadButton from "./DownloadPdf";
 
 export const Hero = () => {
+  
   return (
     <section id="hero" className="h-[100vh] snap-center flex flex-col items-center justify-between">
         <Navbar />
@@ -24,6 +26,18 @@ export const Hero = () => {
                 />
                 </h1>
                 <p className="sm:text-[20px] sm:text-left text-center">Developer in Cambodia, thriving for new challenge for new experience, key team player and knowledge sharing</p>
+                <div className="flex gap-2 sm:justify-normal justify-center">
+                  <div>
+                  <PDFDownloadButton fileName="=KeoVuththana_CV.pdf" >
+                    Download CV
+                  </PDFDownloadButton>
+                  </div>
+                  <div>
+                  <PDFDownloadButton fileName="=KeoVuththana_RESUME.pdf" >
+                    Download Resume
+                  </PDFDownloadButton>
+                  </div>
+                </div>
               </div>
 
             </div>
