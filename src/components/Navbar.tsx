@@ -56,7 +56,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="sm:w-[1400px] w-screen py-[30px]">
-        <div className="flex items-center gap-[50px] sm:ml-5 ml-2">
+        <div className="flex items-center gap-[50px] sm:ml-5 mx-2">
           <Link 
             to="/" 
             className="sm:text-[45px] text-[30px] font-[800] leading-3 tracking-wide"           
@@ -68,7 +68,7 @@ export default function Navbar() {
             Goros
           </Link>
 
-          <ul className='flex gap-[20px]'>
+          <ul className='flex sm:gap-[20px] gap-[15px]'>
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
@@ -76,7 +76,7 @@ export default function Navbar() {
                   active === nav.id ? 
                   "text-white border-b-4 duration-200" : 
                   "text-white"
-                } sm:text-[20px]`}
+                } sm:text-[20px] `}
                 onClick={() => setActive(nav.id)}
               >
                 {active === nav.id && (
