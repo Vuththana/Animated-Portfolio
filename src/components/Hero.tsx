@@ -9,12 +9,12 @@ export const Hero = () => {
     <section id="hero" className="h-[100vh] snap-center flex flex-col items-center justify-between">
         <Navbar />
         <div className="sm:w-[1400px] w-screen h-[100vh] flex justitfy-between mx-auto snap-center">
-            <div className="sm:w-[1400px] w-screen h-[100vh] sm:flex sm:py-0 py-32 justitfy-between mx-auto snap-center ml-3" >
+            <div className="sm:w-[1400px] w-screen sm:flex sm:py-0 py-32 justitfy-between mx-auto snap-center ml-3" >
               <div className="flex flex-col justify-center gap-[20px] sm:flex-1" >
-              <div className="sm:h-[900px] sm:w-[800px] h-[300px] sm:absolute sm:right-[-90px]">
+              <div className="sm:h-[900px] sm:w-[800px] h-[180px] sm:absolute sm:right-[-90px]">
               <EarthCanvas />
             </div>
-                <h1 className="text-center sm:text-left  font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">Hello, I'm 
+                <h1 className="text-center sm:text-left font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">Hello, I'm 
                 <Typewriter
                   options={{
                     strings: ['Vuththana', 'Goros'],

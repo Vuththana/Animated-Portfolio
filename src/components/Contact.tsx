@@ -44,12 +44,12 @@ const ref = useRef<HTMLFormElement>(null);
 };
 
   return (
-    <section id="contact" className='h-[100vh] snap-center flex flex-col justify-center items-center mx-auto'>
-      <div className="sm:w-[1400px] w-screen h-[100vh] flex justify-between">
-        <div className="flex items-center sm:justify-end justify-center" style={{flex: 1}}>
-          <div className="border rounded-xl sm:py-[80px] py-4 sm:px-24 px-5 sm:mr-[200px]">
+    <section id="contact" className='h-[100vh] snap-center flex flex-col justify-center items-center mx-auto pt-[80px]'>
+      <div className="sm:w-[1400px] w-screen flex justify-between">
+        <div className="sm:flex items-center sm:justify-end justify-center" style={{flex: 1}}>
+          <div className="border rounded-xl md:w-full sm:h-full sm:w-[300px] w-[330px] h-[590px] sm:py-[80px] py-3 sm:px-24 px-5 sm:mr-[200px] mx-auto">
             <form ref={ref} onSubmit={handleSubmit}>
-            <p className="sm:text-[40px] text-[30px] font-[700] tracking-wide text-left">Contact Me</p>
+            <p className="sm:text-[40px] text-[20px] font-[700] tracking-wide">Contact Me</p>
 
             <div className="mt-5">
               <InputLabel 
@@ -89,7 +89,7 @@ const ref = useRef<HTMLFormElement>(null);
               value="Message"
               />
               <textarea 
-              className="w-full text-black rounded-lg px-2"
+              className="sm:w-full w-[250px] text-black rounded-lg px-2"
               id="message"
               rows={5}
               required
@@ -122,7 +122,7 @@ const ref = useRef<HTMLFormElement>(null);
             </form>
           </div>
         </div>
-        <div className="sm:flex hidden" style={{flex: 1}}>
+        <div className="md:flex sm:hidden hidden" style={{flex: 1}}>
           <Map />
         </div>
         
