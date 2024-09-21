@@ -37,7 +37,7 @@ export default function Works() {
                     <div className=' sm:w-[600px] sm:h-[600px] w-[300px] mx-auto h-[240px] border border-[#1c1c21] rounded-xl sm:px-4 py-4 bg-[#0e0e10]'>
                             {work === "Front-End" ? (
                                 <>
-                                    <img className='mx-auto sm:w-[700px] w-[300px]' src="https://threejscc-portfolio.vercel.app/assets/grid3.png"  />
+                                    <img className='mx-auto sm:w-[700px] w-[200px]' src="https://threejscc-portfolio.vercel.app/assets/grid3.png"  />
                                     <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>UI Design</h1>
                                     <p className='px-4 text-sm sm:text-lg'>Designed Front End with Responsive Design to make user experiences more appealing</p>
                                 </>

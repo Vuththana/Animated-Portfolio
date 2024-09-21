@@ -56,7 +56,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full transition-all duration-300 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="sm:w-[1400px] w-screen py-[30px]">
-        <div className="flex items-center gap-[50px] ml-5">
+        <div className="flex items-center gap-[50px] sm:ml-5 ml-2">
           <Link 
             to="/" 
             className="sm:text-[45px] text-[30px] font-[800] leading-3 tracking-wide"           
