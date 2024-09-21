@@ -22,7 +22,7 @@ const Map = () => {
         stroke="#FFFFFF"
         strokeWidth={0.5}
       >
-        {({ geographies }: { geographies: GeoFeature[] }) =>
+        {({ geographies }) =>
           geographies.map((geo) => (
             <Geography key={geo.rsmKey} geography={geo} />
           ))

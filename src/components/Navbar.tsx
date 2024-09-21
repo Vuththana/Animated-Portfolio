@@ -1,8 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { navLinks } from "../data";
+
 
 export default function Navbar() {
+   const navLinks = [
+    {
+      id: "hero",
+      title: "Hero",
+    },
+    {
+      id: "experience",
+      title: "Experiences",
+    },
+    {
+      id: "contact",
+      title: "Contact",
+    },
+  ];
   // Scroll and update active NavLinks
   const [scrolled, setScrolled] = useState(false);
   

@@ -2,24 +2,24 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 
-interface EarthProps {
+interface ComputerProps {
     isMobile: boolean; // Explicitly type the isMobile prop
 }
 
-const Earth: React.FC<EarthProps> = ({ isMobile }) => {
-    const earth = useGLTF('./earth/scene.gltf');
+const Computer: React.FC<ComputerProps> = ({ isMobile }) => {
+    const computer = useGLTF('./computer/scene.gltf');
 
     return (
         <primitive
-            object={earth.scene}
-            scale={isMobile ? 2 : 1.5}
+            object={computer.scene}
+            scale={isMobile ? 4 : 5.2}
             position-y={0}
             rotation-y={0}
         />
     );
 };
 
-const EarthCanvas = () => {
+const ComputerCanvas = () => {
     const [isMobile, setIsMobile] = useState<boolean>(false); // Explicitly type the state
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const EarthCanvas = () => {
         setIsMobile(mediaQuery.matches);
 
         // Define a callback function to handle changes to the media query
-        const handleMediaQueryChange = (event: MediaQueryListEvent) => { // Explicitly type the event
+        const handleMediaQueryChange = (event: MediaQueryListEvent) => {
             setIsMobile(event.matches);
         };
 
@@ -46,7 +46,6 @@ const EarthCanvas = () => {
     return (
         <Canvas
             shadows
-            frameloop='always'
             dpr={[1, 2]}
             gl={{ preserveDrawingBuffer: true }}
             camera={{
@@ -57,17 +56,28 @@ const EarthCanvas = () => {
             }}
         >
             <Suspense fallback={null}>
+                {/* Lights */}
+                <ambientLight intensity={0.53} /> {/* Soft light */}
+                <directionalLight
+                    position={[5, 5, 5]} // Direction of the light
+                    intensity={1} // Brightness of the light
+                    castShadow // Enables shadowing
+                />
+                <pointLight
+                    position={[-4, 2, 6]} // Position of the point light
+                    intensity={0.8} // Brightness of the point light
+                    decay={2} // How quickly the light diminishes
+                />
                 <OrbitControls
-                    autoRotate
                     enableZoom={false}
                     maxPolarAngle={Math.PI / 2}
                     minPolarAngle={Math.PI / 2}
                 />
-                <Earth isMobile={isMobile} />
+                <Computer isMobile={isMobile} />
                 <Preload all />
             </Suspense>
         </Canvas>
     );
 };
 
-export default EarthCanvas;
+export default ComputerCanvas;

@@ -1,4 +1,4 @@
-import React, { LabelHTMLAttributes } from 'react'
+import  { LabelHTMLAttributes } from 'react'
 
 export default function InputLabel({className = '', value, children, ...props}: LabelHTMLAttributes<HTMLLabelElement> & { value?: string}) {
     return (

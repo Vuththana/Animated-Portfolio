@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import  { useRef, useState } from "react"
 import Map from "./Geo"
 import emailjs from "@emailjs/browser";
 import InputLabel from "./InputLabel"
@@ -8,15 +8,14 @@ import TextInput from "./TextInput"
 export const Contact = () => {
 
 // Handle submit and send email via EmailJs with ReCAPTCHA
-  const ref = useRef();
+const ref = useRef<HTMLFormElement>(null); 
   
   const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
   
 
-  const [success, setSuccess] = useState(null)
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if(recaptchaValue) {
@@ -24,18 +23,16 @@ export const Contact = () => {
       .sendForm(
         "service_8yjpdgh",
         "template_ji2fglr",
-        ref.current,
+        ref.current!,
         "ZuONOyo6zaQ4ggAZ6"
       )
       .then(
         (result) => {
           console.log(result.text);
-          setSuccess(true);
           setSuccessMessage("Your message will be reviewed soon, thank you for contacting me :D")
         },
         (error) => {
           console.log(error.text);
-          setSuccess(false);
         }
       )
     } else {
@@ -50,9 +47,9 @@ export const Contact = () => {
     <section id="contact" className='h-[100vh] snap-center flex flex-col justify-center items-center mx-auto'>
       <div className="sm:w-[1400px] w-screen h-[100vh] flex justify-between">
         <div className="flex items-center sm:justify-end justify-center" style={{flex: 1}}>
-          <div className="border rounded-xl sm:py-[80px] py-2 sm:px-24 px-3 sm:mr-[200px]">
+          <div className="border rounded-xl sm:py-[80px] py-4 sm:px-24 px-5 sm:mr-[200px]">
             <form ref={ref} onSubmit={handleSubmit}>
-            <p className="sm:text-[40px] text-[20px] font-[700] tracking-wide">Contact Me</p>
+            <p className="sm:text-[40px] text-[30px] font-[700] tracking-wide text-left">Contact Me</p>
 
             <div className="mt-5">
               <InputLabel 
@@ -65,7 +62,7 @@ export const Contact = () => {
               name="name"
               isFocused={false}
               required
-              placeholder="abcde"
+              placeholder="John Doe"
               />
             </div>
 
@@ -92,11 +89,12 @@ export const Contact = () => {
               value="Message"
               />
               <textarea 
-              className="w-full text-black "
+              className="w-full text-black rounded-lg px-2"
               id="message"
               rows={5}
               required
               name="message"
+              placeholder="lorem ipsum"
               />
             </div>
 
@@ -117,7 +115,7 @@ export const Contact = () => {
 
 
             <div className="mt-2">
-            {success && <p className="text-green-500 font-bold">{successMessage}</p>} {/* Display success message */}
+            {successMessage && <p className="text-green-500 font-bold">{successMessage}</p>} {/* Display success message */}
             {errorMessage && <p className="text-red-700 font-bold">{errorMessage}</p>} {/* Display error message */}
             </div>
 
