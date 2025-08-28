@@ -15,14 +15,15 @@ export const Hero = () => {
                   Hello, I'm 
                 <Typewriter
                   options={{
-                    strings: ['Vuththana', 'Goros'],
+                    strings: ['Vuththana'],
                     autoStart: true,
                     loop: true,
                     cursor: ''
                   }}
                 />
                 </h1>
-                <p className="sm:text-[20px] md:text-center sm:text-center lg:text-left text-center lg:p-0 p-10 overflow-hidden">Developer in Cambodia, thriving for new challenge for new experience, key team player and knowledge sharing</p>
+                <p className="sm:text-[20px] md:text-center sm:text-center lg:text-left text-center lg:p-0 p-10 overflow-hidden">
+                    Full-Stack Developer in Cambodia, eager for new challenges and experiences, a collaborative team player who values knowledge sharing.</p>
                 <div className="flex gap-2 sm:justify-normal justify-center md:mx-auto lg:mx-0">
                   <div>
                   <PDFDownloadButton fileName="KeoVuththana_CV.pdf" >
