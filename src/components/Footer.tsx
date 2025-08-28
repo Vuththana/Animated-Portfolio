@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-        <div className='fixed sm:top-[920px] top-[870px] mx-2 sm:w-full w-[300px]'>
-           <p className="text-xs">© 2024 Keo Vuththana. All rights reserved.</p>
-        </div>
-  )
+    <footer className="w-full bg-black text-white py-4 mt-8 text-center">
+      <p className="text-xs sm:text-sm">
+        © 2024 Keo Vuththana. All rights reserved.
+      </p>
+    </footer>
+  );
 }

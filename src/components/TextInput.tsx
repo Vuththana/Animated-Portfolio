@@ -1,30 +1,31 @@
 import { forwardRef, InputHTMLAttributes, useEffect, useImperativeHandle, useRef } from 'react';
 
 export default forwardRef(function TextInput(
-    {type, className = '', isFocused = false, ...props}: InputHTMLAttributes<HTMLInputElement> & { isFocused: boolean }
-    , ref
+    { type, className = '', isFocused = false, ...props }: InputHTMLAttributes<HTMLInputElement> & { isFocused?: boolean },
+    ref
 ) {
-    const localRef = useRef<HTMLInputElement>(null)
+    const localRef = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => ({
-        focus: () =>  localRef.current?.focus()
-    }))
+        focus: () => localRef.current?.focus()
+    }));
 
     useEffect(() => {
-        if(isFocused) {
-            localRef.current?.focus()
+        if (isFocused) {
+            localRef.current?.focus();
         }
-    }, [])
-    return (
-        <input 
-        {...props}
-        type={type}
-        className={
-            'w-[250px] sm:w-[500px] bg-gray-50 text-black border-gray-400 border p-2.5 rounded-lg focus:outline-gray-900 focus:shadow-lg ' +
-            className
-        }
-        ref={localRef}
-        />
+    }, []);
 
-    )
-})
+    return (
+        <input
+            {...props}
+            type={type}
+            className={
+                // CHANGE: Replaced fixed widths with w-full for responsiveness
+                'w-full bg-gray-50 text-black border-gray-400 border p-2.5 rounded-lg focus:outline-gray-900 focus:shadow-lg ' +
+                className
+            }
+            ref={localRef}
+        />
+    );
+});

@@ -1,74 +1,114 @@
-import { useState } from 'react';
+import { useState } from "react";
+interface Project {
+    id: number;
+    title: string;
+    imageUrl: string;
+    description: string;
+    techStack: string[];
+    githubUrl: string;
+  }
+// --- STEP 1: Define your project data ---
+const projects:Project[] = [
+  {
+    id: 1,
+    title: "DiscordServerStatus Plugin",
+    imageUrl: "https://assets.mofoprod.net/network/images/discord.original_O7AzcAH.jpg",
+    description: "A minecraft plugin made for fun just to execute simple commands, more features might be adding soon...",
+    techStack: ["Java, JDA"],
+    githubUrl: "https://github.com/Vuththana/DiscordServerStatus"
+  },
+  {
+    id: 2,
+    title: "Inventory Management System",
+    imageUrl: "https://i.imgur.com/QSLRm5s.png",
+    description: "A modern Inventory Management System (IMS) built with Laravel, React (via Inertia.js), and Filament. This project was created as part of my Project Practicum.",
+    techStack: ["Laravel", "Tailwind", "React(Inertia.JS)", "Filament"],
+    githubUrl: "https://github.com/Vuththana/IMS-For-Project-Practicum"
+  },
+  {
+    id: 3,
+    title: "Bone Network Website",
+    imageUrl: "https://i.imgur.com/laxR75J.png",
+    description: "A minecraft website that I've built for my own server.",
+    techStack: ["React.JS, Shadcn UI"],
+    githubUrl: "https://github.com/Vuththana/bone-website"
+  },
+  {
+    id: 4,
+    title: "Shoppie V2 Ecommerce Website",
+    imageUrl: "https://i.imgur.com/laxR75J.png",
+    description: "An e-commerce website that was half done, was a fun project to contribute with my developer friends.",
+    techStack: ["Laravel", "Tailwind", "React(Inertia.JS)", "Filament"],
+    githubUrl: "https://github.com/Vuththana/shoppie-v2"
+  },
+];
 
-export default function Works() {
-    const data = [
-        "Front-End",
-        "Back-End",
-        "Collaboration",
-        "Data Entry",
-        "NEC"
-    ];
 
-    const [work, setWork] = useState("Front-End");
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
 
-    const handleClick = (item: string) => {
-        setWork(item);
-    };
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+  };
 
+  return (
+    <section
+      id="projects"
+      className="min-h-screen snap-center flex flex-col items-center justify-center py-12 px-4 sm:px-8"
+    >
+      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between gap-8">
+        <div className="flex justify-center md:justify-start md:flex-1">
+          <ul className="flex md:flex-col flex-wrap gap-4 md:gap-6 justify-center items-center">
+            {projects.map((project) => (
+              <li key={project.id} onClick={() => handleProjectClick(project)}>
+                <span
+                  className={`text-lg sm:text-4xl lg:text-6xl font-bold cursor-pointer relative ${
+                    selectedProject.id === project.id
+                      ? "text-white"
+                      : "text-transparent hover:text-white"
+                  }`}
+                  style={{ WebkitTextStroke: "1px white" }}
+                >
+                  {project.title}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-    return (
-        <section id='experience' className='h-[100vh] snap-center flex flex-col items-center justify-center pt-[100px]'>
-            <div className='sm:w-[1400px] h-[100vh] w-screen sm:flex justify-between'>
-                <div className='sm:flex items-center sm:flex-1'>
-                    <ul className='flex flex-col gap-[20px] justify-center items-center'>
-                        {data.map((item) => (
-                            <li key={item} onClick={() => handleClick(item)}>
-                                <span 
-                                    className={`sm:text-[90px] text-[20px] font-[700] stroke-[1px] cursor-pointer relative ${work === item ? 'text-white' : 'hover:text-white text-transparent'}`}
-                                    style={{ WebkitTextStroke: '1px white' }}
-                                >
-                                    {item}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
-                </div> 
-                <div className="sm:flex justify-center my-auto text-[20px] sm:flex-1 sm:mt-0 mt-10 sm:mx-0 mx-2">
-                    <div className=' sm:w-[600px] sm:h-[600px] w-[300px] mx-auto h-[240px] border border-[#1c1c21] rounded-xl sm:px-4 py-4 bg-[#0e0e10]'>
-                            {work === "Front-End" ? (
-                                <>
-                                    <img className='mx-auto sm:w-[700px] w-[200px]' src="https://threejscc-portfolio.vercel.app/assets/grid3.png"  />
-                                    <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>UI Design</h1>
-                                    <p className='px-4 text-sm sm:text-lg'>Designed Front End with Responsive Design to make user experiences more appealing</p>
-                                </>
-                            ) : work === "Back-End" ? (
-                                <>
-                                <img className='mx-auto sm:w-[200px] w-[100px]' src="https://cdni.iconscout.com/illustration/premium/thumb/backend-of-developer-illustration-download-in-svg-png-gif-file-formats--html-logo-web-back-end-development-programmer-pack-design-illustrations-6109660.png?f=webp" />
-                                <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>Backend Design</h1>
-                                <p className='px-4 text-sm sm:text-lg'>Designed and Optimized MySQL database schemas to support high-performance queries and transactions.</p>
-                                </>
-                            ): work === "Collaboration" ? (
-                                <>
-                                <img className='mx-auto sm:w-[200px] w-[100px]' src="https://www.icegif.com/wp-content/uploads/2023/07/icegif-1286.gif" />
-                                <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>Team Collaboration</h1>
-                                <p className='px-4 text-sm sm:text-lg'>Collaborated with other developers on making projects.</p>
-                                </>
-                            ) : work === "Data Entry" ? (
-                                <>
-                                <img className='mx-auto sm:w-[200px] w-[100px]' src="https://cdn.prod.website-files.com/62f0ce991acf50d5e001981b/64bfd6f1707d2a50a6b4ef47_character-illustration_workflow_core_financial_accounts_payable_light.gif" />
-                                <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>Data Entry</h1>
-                                <p className='px-4 text-sm sm:text-lg'>Performed data verification and validation to ensure accuracy and completeness.</p>
-                                </>
-                            ) : work === "NEC" ? (
-                                <>
-                                <img className='mx-16 sm:w-[200px] w-[100px]' src="https://media.tenor.com/eu1JGalJAoEAAAAi/vote-voting.gif"/>
-                                <h1 className='sm:text-[30px] text-[20px] font-[600] mt-3 px-4'>Election Committee</h1>
-                                <p className='px-4 text-sm sm:text-lg'>Monitored polling stations to ensure smooth and fair voting operations.</p>
-                                </>
-                            ) : null}
-                            </div>
-                </div> 
+        <div className="flex justify-center md:flex-1">
+          {selectedProject && (
+            <div className="w-full max-w-md md:max-w-lg border border-[#1c1c21] rounded-xl p-4 sm:p-6 bg-[#0e0e10]">
+              <img
+                className="mx-auto w-full rounded-lg object-cover aspect-video" // Use a real screenshot
+                src={selectedProject.imageUrl}
+                alt={selectedProject.title}
+              />
+              <h1 className="text-lg sm:text-2xl font-semibold mt-4">
+                {selectedProject.title}
+              </h1>
+              <p className="text-sm sm:text-base mt-2 text-gray-300">
+                {selectedProject.description}
+              </p>
+              
+              <div className="mt-4 flex flex-wrap gap-2">
+                {selectedProject.techStack.map((tech) => (
+                  <span key={tech} className="bg-gray-700 text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="mt-5 flex gap-4">
+                <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-gray-800 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600">
+                  Source Code
+                </a>
+              </div>
             </div>
-        </section>
-    );
+          )}
+        </div>
+      </div>
+    </section>
+  );
 }
