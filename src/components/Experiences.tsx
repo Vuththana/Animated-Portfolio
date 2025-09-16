@@ -53,7 +53,7 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
+      id="experience"
       className="min-h-screen snap-center flex flex-col items-center justify-center py-12 px-4 sm:px-8"
     >
       <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between gap-8">
